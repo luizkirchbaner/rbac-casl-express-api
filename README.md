@@ -32,6 +32,11 @@ Crie um arquivo .env na raiz:
 
 ```bash
 PORT=3000
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=app_user
+DB_PASS=app_pass
+DB_NAME=app_db
 ```
 
 ## Desenvolvimento
