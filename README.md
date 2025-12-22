@@ -64,3 +64,9 @@ src/
   shared/      Utilidades, middlewares e validações
 
 ```
+# Migrations
+
+## Criando uma migration
+```bash
+npm run m:create src/core/database/migrations/CrateUsersTable
+```
