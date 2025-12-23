@@ -2,6 +2,7 @@ import express from 'express';
 import { setupSwagger } from './swagger';
 import { setupCors } from './cors';
 import { AppDataSource } from './database/data-source';
+import { router } from '@/shared/http/router';
 
 const init = async () => {
   try {
@@ -9,6 +10,7 @@ const init = async () => {
     const app = express();
 
     app.use(express.json());
+    app.use(router);
     setupCors(app);
     setupSwagger(app);
 
