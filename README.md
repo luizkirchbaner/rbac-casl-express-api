@@ -45,6 +45,12 @@ DB_PASS=app_password
 DB_NAME=express_api
 ```
 
+4° Migrations
+Execute as migrações para criar as tabelas do banco de dados:
+```bash
+npm run m:run
+```
+
 ## Desenvolvimento
 
 Para iniciar o projeto rode:
