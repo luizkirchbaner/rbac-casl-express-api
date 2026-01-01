@@ -43,6 +43,7 @@ DB_PORT=3306
 DB_USER=app_user
 DB_PASS=app_password
 DB_NAME=express_api
+JWT_SECRET=150fe23554aed56c925faef116615fdda4b95bcaaabaee74134cb383b96728e1dbd48ba11a6ccaf979a178887d903fb0d932ee9767bedd0740520b181ecc1fb4
 ```
 
 4° Migrations
