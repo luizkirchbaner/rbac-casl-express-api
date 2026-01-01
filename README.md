@@ -21,18 +21,20 @@ O projeto se encontra na fase de desenvolvimento.
 
 ## Setup
 
-1° - Crie o container do mysql executando o comando abaixo na raiz do projeto
+1° - Subir o banco de dados MySQL
+Na raiz do projeto, execute o comando abaixo para criar e iniciar o container do MySQL em segundo plano:
 ```bash
   docker compose up -d
 ```
 
-2° - Instale as dependências do projeto
-
+2° - Instalar as dependências
+Com o container em execução, instale todas as dependências necessárias do projeto:
 ```bash
 npm install
 ```
 
-3° - Configure as variaveis de ambiente adicionando o arquivo .env na raiz com os seguintes valores:
+3° - Configurar variáveis de ambiente
+Crie um arquivo `.env` na raiz do projeto e defina as variáveis abaixo para configurar a aplicação e a conexão com o banco de dados:
 
 ```bash
 PORT=3000
