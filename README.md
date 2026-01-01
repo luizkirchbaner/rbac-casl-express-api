@@ -24,7 +24,7 @@ O projeto se encontra na fase de desenvolvimento.
 1° - Subir o banco de dados MySQL
 Na raiz do projeto, execute o comando abaixo para criar e iniciar o container do MySQL em segundo plano:
 ```bash
-  docker compose up -d
+docker compose up -d
 ```
 
 2° - Instalar as dependências
