@@ -15,28 +15,32 @@ O projeto se encontra na fase de desenvolvimento.
 - Swagger (documentação)
 
 ## Requisitos
+- Node na versão 22
+- Docker
+- Docker compose
 
-Para desenvolvimento, você precisará apenas do Node.js e de um pacote global do Node, o NPM, instalados em seu ambiente.
+## Setup
 
-## Instalação
+1° - Crie o container do mysql executando o comando abaixo na raiz do projeto
+```bash
+  docker compose up -d
+```
 
-Para instalar as dependências do projeto rode:
+2° - Instale as dependências do projeto
 
 ```bash
 npm install
 ```
 
-## Ambiente
-
-Crie um arquivo .env na raiz:
+3° - Configure as variaveis de ambiente adicionando o arquivo .env na raiz com os seguintes valores:
 
 ```bash
 PORT=3000
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=app_user
-DB_PASS=app_pass
-DB_NAME=app_db
+DB_PASS=app_password
+DB_NAME=express_api
 ```
 
 ## Desenvolvimento
