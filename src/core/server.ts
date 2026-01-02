@@ -1,4 +1,5 @@
 import express from 'express';
+import morgan from 'morgan';
 import { setupSwagger } from './swagger';
 import { setupCors } from './cors';
 import { AppDataSource } from './database/data-source';
@@ -10,7 +11,9 @@ const init = async () => {
     const app = express();
 
     app.use(express.json());
+    app.use(morgan('dev'));
     app.use(router);
+
     setupCors(app);
     setupSwagger(app);
 
