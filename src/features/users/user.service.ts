@@ -16,12 +16,11 @@ export class UserService {
     const where: FindOptionsWhere<UserEntity> = {};
 
     if (input.name) {
-      console.log(input)
       where.name = ILike(`%${input.name}%`);
     }
 
     const users = await userRepository.find({ where });
 
-    return { users }
+    return { users };
   }
 }

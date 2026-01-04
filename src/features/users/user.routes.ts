@@ -1,9 +1,9 @@
-import { Router } from 'express'
-import { UserController } from './user.controller'
-import { ensureAuthenticated } from '@/shared/middlewares/ensure-authenticated.middleware'
+import { Router } from 'express';
+import { UserController } from './user.controller';
+import { ensureAuthenticated } from '@/shared/middlewares/ensure-authenticated.middleware';
 
-const userRoutes = Router()
-const userController = new UserController()
+const userRoutes = Router();
+const userController = new UserController();
 
 /**
  * @swagger
@@ -29,6 +29,6 @@ const userController = new UserController()
  */
 userRoutes.get('/', ensureAuthenticated, (request, response) =>
   userController.get(request, response)
-)
+);
 
-export { userRoutes }
+export { userRoutes };

@@ -14,20 +14,20 @@ interface LoginResult {
 
 export class AuthService {
   public async login(input: LoginInput): Promise<LoginResult> {
-    const userRepository = AppDataSource.getRepository(UserEntity)
+    const userRepository = AppDataSource.getRepository(UserEntity);
 
     const user = await userRepository.findOne({
       where: { email: input.email }
-    })
+    });
 
     if (!user) {
-      throw new Error('Credenciais inválidas')
+      throw new Error('Credenciais inválidas');
     }
 
     const passwordMatches = await bcrypt.compare(
       input.password,
       user.password
-    )
+    );
 
     if (!passwordMatches) {
       throw new Error('Credenciais inválidas');
@@ -37,8 +37,8 @@ export class AuthService {
       { sub: user.id },
       process.env.JWT_SECRET as string,
       { expiresIn: '24h' }
-    )
+    );
 
-    return { accessToken }
+    return { accessToken };
   }
 }

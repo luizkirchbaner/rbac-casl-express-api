@@ -1,6 +1,6 @@
-import { Request, Response } from 'express'
-import { z } from 'zod'
-import { AuthService } from './auth.service'
+import { Request, Response } from 'express';
+import { z } from 'zod';
+import { AuthService } from './auth.service';
 
 const loginSchema = z.object({
   email: z.string().refine(
@@ -8,27 +8,27 @@ const loginSchema = z.object({
     { message: 'Email inválido' }
   ),
   password: z.string().min(1)
-})
+});
 
 export class AuthController {
-  private readonly authService: AuthService
+  private readonly authService: AuthService;
 
   constructor() {
-    this.authService = new AuthService()
+    this.authService = new AuthService();
   }
 
   public async login(request: Request, response: Response): Promise<Response> {
-    const parsed = loginSchema.safeParse(request.body)
+    const parsed = loginSchema.safeParse(request.body);
 
     if (!parsed.success) {
       return response.status(400).json({
         message: 'Invalid input',
         errors: parsed.error.flatten().fieldErrors
-      })
+      });
     }
 
-    const result = await this.authService.login(parsed.data)
+    const result = await this.authService.login(parsed.data);
 
-    return response.status(200).json(result)
+    return response.status(200).json(result);
   }
 }
