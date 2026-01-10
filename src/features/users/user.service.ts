@@ -23,4 +23,11 @@ export class UserService {
 
     return { users };
   }
+
+  public async findById(id: string): Promise<UserEntity | null> {
+    const userRepository = AppDataSource.getRepository(UserEntity);
+    const user = await userRepository.findOneBy({ id });
+
+    return user;
+  }
 }
