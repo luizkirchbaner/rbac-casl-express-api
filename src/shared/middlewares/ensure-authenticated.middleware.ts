@@ -36,6 +36,7 @@ export async function ensureAuthenticated(
       return;
     }
 
+    request.userRule = await user.caslRule;
     request.user = user;
 
     next();
