@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { UserController } from './user.controller';
 import { ensureAuthenticated } from '@/shared/middlewares/ensure-authenticated.middleware';
+import { permissionMiddleware } from '@/shared/middlewares/permission.middleware';
 
 const userRoutes = Router();
 const userController = new UserController();
@@ -27,8 +28,11 @@ const userController = new UserController();
  *       401:
  *         description: Unauthorized
  */
-userRoutes.get('/', ensureAuthenticated, (request, response) =>
-  userController.get(request, response)
+userRoutes.get(
+  '/',
+  ensureAuthenticated,
+  permissionMiddleware('read', 'User'),
+  (request, response) => userController.get(request, response)
 );
 
 export { userRoutes };
