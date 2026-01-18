@@ -8,6 +8,7 @@ import {
   Relation,
 } from 'typeorm';
 import { UserEntity } from './UserEntity';
+import { MongoQuery } from '@casl/ability';
 
 @Entity('casl_rules')
 export class CaslRuleEntity {
@@ -18,16 +19,16 @@ export class CaslRuleEntity {
   role!: string;
 
   @Column('json', { nullable: false })
-  action: any;
+  action!: string | string[];
 
   @Column('json', { nullable: true })
-  subject: any;
+  subject!: string | string[];
 
   @Column('json', { nullable: true })
-  fields: any;
+  fields!: string[] | null;
 
   @Column('json', { nullable: true })
-  conditions: any;
+  conditions!: MongoQuery<Record<string, unknown>> | null;
 
   @Column('boolean', { default: false })
   inverted!: boolean;
