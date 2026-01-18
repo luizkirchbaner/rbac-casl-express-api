@@ -1,18 +1,18 @@
 import {
   Entity,
-  PrimaryColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
   Relation,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { UserEntity } from './UserEntity';
 import { MongoQuery } from '@casl/ability';
 
 @Entity('casl_rules')
 export class CaslRuleEntity {
-  @PrimaryColumn('char', { length: 36 })
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column('varchar', { length: 100, nullable: false })

@@ -6,13 +6,14 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
-  Relation
+  Relation,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 import { CaslRuleEntity } from './CaslRuleEntity';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryColumn({ type: 'char', length: 36 })
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column({ type: 'varchar', nullable: false })
@@ -24,11 +25,11 @@ export class UserEntity {
   @Column({ type: 'varchar', nullable: false })
   password!: string;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
-  createdAt!: Date;
+  @CreateDateColumn()
+  created_at!: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
-  updatedAt!: Date;
+  @UpdateDateColumn()
+  updated_at!: Date;
 
   @ManyToOne(() => CaslRuleEntity, (caslRule) => caslRule.users, { lazy: true })
   @JoinColumn({ name: 'casl_rule_id' })

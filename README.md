@@ -16,24 +16,17 @@ O projeto se encontra na fase de desenvolvimento.
 
 ## Requisitos
 - Node na versão 22
-- Docker
-- Docker compose
 
 ## Setup
 
-1° - Subir o banco de dados MySQL
-Na raiz do projeto, execute o comando abaixo para criar e iniciar o container do MySQL em segundo plano:
-```bash
-docker compose up -d
-```
-
-2° - Instalar as dependências
+1° - Instalar as dependências
 Com o container em execução, instale todas as dependências necessárias do projeto:
 ```bash
 npm install
 ```
+O banco SQLite é criado automaticamente como arquivo local (rbac_casl.sqlite).
 
-3° - Configurar variáveis de ambiente
+2° - Configurar variáveis de ambiente
 Crie um arquivo `.env` na raiz do projeto e defina as variáveis abaixo para configurar a aplicação e a conexão com o banco de dados:
 
 ```bash
@@ -46,8 +39,8 @@ DB_NAME=express_api
 JWT_SECRET=150fe23554aed56c925faef116615fdda4b95bcaaabaee74134cb383b96728e1dbd48ba11a6ccaf979a178887d903fb0d932ee9767bedd0740520b181ecc1fb4
 ```
 
-4° Migrations
-Execute as migrações para criar as tabelas do banco de dados:
+3° Migrations
+Execute as migrações para criar os registros do banco de dados:
 ```bash
 npm run m:run
 ```
@@ -76,10 +69,4 @@ src/
   features/    Funcionalidades organizadas por domínio
   shared/      Utilidades, middlewares e validações
 
-```
-# Migrations
-
-## Criando uma migration
-```bash
-npm run m:create src/core/database/migrations/CreateUsersTable
 ```
