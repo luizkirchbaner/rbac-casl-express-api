@@ -50,7 +50,7 @@ PORT=3000
 JWT_SECRET=your_jwt_secret_here
 ```
 
-# Gerando uma chave secreta para JWT
+### Gerando uma chave secreta para JWT
 ```bash
 openssl rand -hex 64
 ```
