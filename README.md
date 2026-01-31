@@ -47,7 +47,12 @@ Crie um arquivo `.env` na raiz do projeto e defina as variáveis abaixo para con
 
 ```bash
 PORT=3000
-JWT_SECRET=150fe23554aed56c925faef116615fdda4b95bcaaabaee74134cb383b96728e1dbd48ba11a6ccaf979a178887d903fb0d932ee9767bedd0740520b181ecc1fb4
+JWT_SECRET=your_jwt_secret_here
+```
+
+# Gerando uma chave secreta para JWT
+```bash
+openssl rand -hex 64
 ```
 
 3° Migrations
